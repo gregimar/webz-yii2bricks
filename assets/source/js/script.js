@@ -1,11 +1,11 @@
 var loader = '<div class="loader"></div>';
-var addElementButton = '<div class="bb-addElement btn btn-default btn-sm" data-toggle="modal" data-target="#bb-addElement"><i class="fa fa-plus"></i></div>';
-var addElementButtonMini = '<i class="fa fa-plus bb-addElement" data-toggle="modal" data-target="#bb-addElement"></i>';
-var activeElement = null;
-var addPos;
-var isRoot = true;
-
-var elementMenu = '<div class="bb-elementMenu">'+addElementButtonMini+'<i class="fa fa-gear"></i><i class="fa fa-trash bb-removeElement"></i></div>';
+//var addElementButton = '<div class="bb-addElement btn btn-default btn-sm" data-toggle="modal" data-target="#bb-addElement"><i class="fa fa-plus"></i></div>';
+//var addElementButtonMini = '<i class="fa fa-plus bb-addElement" data-toggle="modal" data-target="#bb-addElement"></i>';
+//var activeElement = null;
+//var addPos;
+//var isRoot = true;
+//
+//var elementMenu = '<div class="bb-elementMenu">'+addElementButtonMini+'<i class="fa fa-gear"></i><i class="fa fa-trash bb-removeElement"></i></div>';
 
 window.onload = function(){  
     $('body').append(loader);
@@ -13,12 +13,12 @@ window.onload = function(){
 
 $(document).ready(function(){
     setTimeout(function(){
-        $('.loader').remove();
+        $('.loader').hide();
     }, 500);    
     
     $('[data-toggle="tooltip"]').tooltip(); 
 });
-
+/*
 $(document).on('click','.bb-addElement', function(){
     activeElement = $(this).closest('.bb-insertable');
 
@@ -48,8 +48,7 @@ $('.bb-insert').click(function(){
     }
     
     activeElement.find('.bb-insertable').append(elementMenu);    
-    $('.bb-insertable').sortable();
-    
+    $('.bb-insertable').sortable();    
 });
 
 $('.bb-insertable').hover(function(){
@@ -71,31 +70,5 @@ function disableEditorView()
         editor_view = true;
     }
 }
-
-
-
-$.fn.bbEditor = function() {
-    var _this = this;
-
-    var insertTool = function(){
-        var modal_html = '<div id="bb-insertTool" class="modal fade" role="dialog">'
-            + '<div class="modal-dialog modal-lg">'
-            +   '<div class="modal-content">'
-            +       '<div class="modal-body"><div>'
-            +       '<div class="modal-footer">'
-            +         '<button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>'
-            +       '</div>'
-            +   '</div>'
-            + '</div>'
-        + '</div>';       
-
-        return $(modal_html).insertAfter(_this);            
-    };
-
-    insertTool();
-
-    return this;
-
-};
-
+*/
 

@@ -24,6 +24,18 @@
     100% { transform: rotate(360deg); }
 }
 
+#bb-insertTool .modal-dialog{
+    width: 100%;  margin: 0px; 
+}
+
+#bb-insertTool .modal-body{
+    min-height: 500px;
+}
+
+#bb-insertTool .modal-content{
+    border-radius: 0px;
+}
+
 #bb-menu-container{
     height: 100%;
     background: #222d32;
@@ -35,9 +47,7 @@
     
 }
 
-#bb-addElement .bb-row{
-    padding: 5px 15px;
-}
+
 
 #bb-content .bb-row{
     padding: 0px 10px;

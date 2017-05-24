@@ -1,0 +1,12 @@
+#bb-insertTool .bb-row > div{
+    background: #e5e5e5;
+    padding: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid white;
+}
+
+#bb-insertTool .bb-row{
+    padding: 5px 15px;
+}

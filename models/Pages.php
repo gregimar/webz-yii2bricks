@@ -1,5 +1,5 @@
 <?php
-namespace backend\modules\bricks\models;
+namespace webz\bricks\models;
 
 use Yii;
 use yii\db\ActiveRecord;

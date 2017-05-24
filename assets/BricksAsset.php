@@ -1,13 +1,13 @@
 <?php
 
-namespace backend\modules\bricks\assets;
+namespace webz\bricks\assets;
 
 use yii\web\AssetBundle;
 
 class BricksAsset extends AssetBundle
 {
-    public $sourcePath = '@backend/modules/bricks/assets/source';
-    public $baseUrl = '@backend/modules/bricks/assets/source';
+    public $sourcePath = '@vendor/webz/yii2-bricks/assets/source';
+    public $baseUrl = '@vendor/webz/yii2-bricks/assets/source';
     
     public $css = [
         'css/font-awesome/css/font-awesome.min.css',
@@ -16,7 +16,8 @@ class BricksAsset extends AssetBundle
     ];
     public $js = [
         'jquery-ui/jquery-ui.min.js',
-        'js/script.js'       
+        'js/script.js',
+        'js/bbEditor.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -1,3 +1,12 @@
+<?php
+use webz\bricks\assets\InsertToolAsset;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+InsertToolAsset::register($this);?>
+
+<?php $this->head() ?>
+
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#blocks">Blocks</a></li>
     <li><a data-toggle="tab" href="#other">Other</a></li>
@@ -11,7 +20,3 @@
         <h1>Other</h1>
     </div>
 </div>
-
-<?php
-$this->registerCssFile(Yii::$app->request->baseUrl.'/css/style.css');
-?>

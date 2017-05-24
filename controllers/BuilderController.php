@@ -3,7 +3,7 @@ namespace webz\bricks\controllers;
 
 use Yii;
 use yii\web\Controller;
-use backend\modules\bricks\models\Pages;
+use webz\bricks\models\Pages;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -64,7 +64,7 @@ class BuilderController extends Controller
     
     public function actionInserttool()
     {
-        $this -> layout = 'main';
+        $this -> layout = 'insertTool';
         
         return $this->render('insertTool/index', [
             
