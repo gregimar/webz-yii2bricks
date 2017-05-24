@@ -1,0 +1,22 @@
+{
+    "name": "webz/yii2-bricks",
+    "description": "Yii2 bricks builder",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "GrzegorzM",
+            "email": "grzegorz@webz.net.au"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "webz\\bricks\\": ""
+        }
+    }
+}
