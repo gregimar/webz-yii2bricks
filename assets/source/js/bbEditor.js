@@ -48,8 +48,7 @@ $.fn.bbEditor = function(custom_opt) {
                 }
             }).done(function(){
                 
-            });
-            
+            });            
         });
     };
     
@@ -75,11 +74,28 @@ $.fn.bbEditor = function(custom_opt) {
     });
     
     /**
+     * Return unique id for elements
+     * @returns {Number} Unique ID
+     */
+    var generateUniqueId = function(){
+        var timestamp = new Date().getTime();
+        return Math.floor((Math.random() * 10000) + 1)+timestamp;
+    };
+    
+    /**
      * Insert element into content
      * @param {object} element
      */
     var insertElement = function(element){
-        insertElementModalHandle.modal('hide');        
+        insertElementModalHandle.modal('hide');
+        
+        //Add unique id to inserted element
+        element.attr('data-bb-id', generateUniqueId());
+        
+        //Remove example contents from inserted elements
+        element.find('.bb-element-example').remove();
+        
+        //Get inserted element content
         var content = element[0].outerHTML.replace('bb-insert','');
         
         if(insertPos==='append'){
@@ -87,8 +103,26 @@ $.fn.bbEditor = function(custom_opt) {
         }else if(insertPos==='prepend'){
             activeElement.prepend(content); 
         }
-        activeElement.find('.bb-insertable').append(elementMenu(element)); 
+        
+        //Cal hooks for elements
+        insertElementHook(element);
+        
+        //Set sortable elements
         setSortableElements();
+    };
+    
+    var insertElementHook = function(element){
+       
+        //Init inline tinymce editor for block-text
+        if(element.data('bb-type')==='block-text'){        
+            tinymce.init({
+                selector:'.bb-element[data-bb-id="'+element.data('bb-id')+'"]',
+                inline: true               
+            });
+        }
+        
+        //Generate menu for inserted element
+        elementMenu(element);
     };
     
     /**
@@ -101,11 +135,34 @@ $.fn.bbEditor = function(custom_opt) {
     /**
      * Set element menu
      * @param {object} element
-     * @returns {String}
      */
     var elementMenu = function(element){
-        var addElementButtonMini = '<i class="fa fa-plus bb-addElement" id="'+opt.insertToolCaller+'"></i>';
-        return '<div class="bb-elementMenu">'+addElementButtonMini+'<i class="fa fa-gear"></i><i class="fa fa-trash bb-removeElement"></i></div>';
+        var menu = '<div class="bb-elementMenu"></div>',
+            addElementBtn = '<i class="fa fa-plus bb-addElement" id="'+opt.insertToolCaller+'"></i>',
+            customizeElementBtn = '<i class="fa fa-gear"></i>',
+            removeElementBtn = '<i class="fa fa-trash bb-removeElement"></i>';       
+        
+        //Append menu to insert elements and his childs with class .bb-element
+        activeElement.find('.bb-element[data-bb-id="'+element.data('bb-id')+'"]').append(menu);        
+        activeElement.find('.bb-element[data-bb-id="'+element.data('bb-id')+'"] .bb-element').append(menu);
+        
+        //Insert menu elements depend on element classes
+        activeElement.find('.bb-element[data-bb-id="'+element.data('bb-id')+'"] .bb-elementMenu').each(function(i){
+            
+            if($(this).parent().hasClass('bb-insertable')){
+                $(this).append(addElementBtn);
+            }
+            
+            if($(this).parent().hasClass('bb-customizable')){
+                $(this).append(customizeElementBtn);
+            }
+            
+            if($(this).parent().hasClass('bb-removable')){
+                $(this).append(removeElementBtn);
+            }
+            
+        });
+       
     };
     
     /**

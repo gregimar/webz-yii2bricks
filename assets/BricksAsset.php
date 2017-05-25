@@ -16,6 +16,7 @@ class BricksAsset extends AssetBundle
     ];
     public $js = [
         'jquery-ui/jquery-ui.min.js',
+        'tinymce/tinymce.min.js',        
         'js/script.js',
         'js/bbEditor.js'
     ];

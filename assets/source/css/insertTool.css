@@ -1,4 +1,4 @@
-#bb-insertTool .bb-row > div{
+#bb-insertTool div[data-bb-type="bs-grid-row"] > div[data-bb-type="bs-grid-col"]{
     background: #e5e5e5;
     padding: 20px;
     font-size: 15px;
@@ -7,6 +7,10 @@
     border: 1px solid white;
 }
 
-#bb-insertTool .bb-row{
+#bb-insertTool div[data-bb-type="bs-grid-row"]{
     padding: 5px 15px;
+}
+
+#bb-insertTool p[data-bb-type="block-text"]{
+    width: 100%; min-height: 50px; background: #e5e5e5; cursor: pointer;
 }
