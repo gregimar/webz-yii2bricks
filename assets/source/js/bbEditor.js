@@ -96,8 +96,7 @@ $.fn.bbEditor = function(custom_opt) {
      */
     var setSortableElements = function(){
         $('.bb-insertable').sortable();
-    };
-    
+    };    
     
     /**
      * Set element menu
@@ -113,21 +112,22 @@ $.fn.bbEditor = function(custom_opt) {
      * Append default insert button to editable content
      */
     var appendDefaultInsertButton = function(){
-        _this.append('<div class="row">'
+        $('<div class="row">'
             +   '<div class="col-sm-12 text-center mt10">'
             +       '<div class="bb-addElement btn btn-default btn-lg" id="'+opt.insertToolCaller+'"><i class="fa fa-plus"></i></div>'
             +   '</div>'
-            + '</div>');
+            + '</div>')
+        .insertAfter(_this);
     };
     
-    /* INITS - BEGIN */
+/* INITS - BEGIN */
     //Init insertTool
     insertTool();
     
     //Append default insert button
     appendDefaultInsertButton();
     
-    /* INITS - END */
+/* INITS - END */
 
     return this;
 };
